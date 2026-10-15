@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Perto de Mim — oportunidades locais de emprego, formação, estágios e apoio na tua comunidade.">
+  <title>Perto de Mim — Oportunidades locais</title>
+  <meta name="api-base" content="http://127.0.0.1:3001">
+  <link rel="icon" href="assets/logo-icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topnav">
+    <div class="container topnav__inner">
+      <a class="brand-lockup topnav__brand" href="index.html" aria-label="Perto de Mim — página inicial">
+        <img class="brand-lockup__icon" src="assets/logo-icon.svg" width="50" height="58" alt="">
+        <span class="brand-lockup__text">
+          <span class="brand-lockup__title">Perto de <strong>Mim</strong></span>
+          <span class="brand-lockup__tagline">Oportunidades locais, mais perto de ti</span>
+        </span>
+      </a>
+      <nav class="topnav__links" aria-label="Principal">
+        <a class="is-active" href="index.html">Início</a>
+        <a href="index.html#explorar">Explorar</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+      <div class="topnav__actions">
+        <button type="button" class="btn-icon" id="nav-search-btn" aria-label="Pesquisar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
+        </button>
+        <a class="btn btn--ghost" href="entrar.html">Entrar</a>
+        <a class="btn btn--primary" href="registar.html">Registar</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero__bg" id="hero-ads-track" aria-hidden="true">
+      <div
+        class="hero__bg-slide is-active"
+        style="--hero-pos: 50% 58%"
+        data-caption="Fundão — o teu ponto de partida"
+      >
+        <img
+          src="assets/hero/anuncio-1.jpg"
+          alt=""
+          width="547"
+          height="365"
+          decoding="async"
+          fetchpriority="high"
+        >
+      </div>
+      <div
+        class="hero__bg-slide"
+        style="--hero-pos: 50% 38%"
+        data-caption="Património e comunidade"
+      >
+        <img src="assets/hero/anuncio-2.jpg" alt="" width="547" height="365" decoding="async">
+      </div>
+      <div
+        class="hero__bg-slide"
+        style="--hero-pos: 50% 45%"
+        data-caption="Vida local perto de ti"
+      >
+        <img src="assets/hero/anuncio-3.jpg" alt="" width="657" height="304" decoding="async">
+      </div>
+    </div>
+    <div class="hero__overlay"></div>
+
+    <div class="container hero__inner">
+      <div class="hero__content">
+      <p class="hero__eyebrow">Região Fundão · Patrocínio local</p>
+      <h1>Descobre o que está <span class="text-accent">perto de ti</span></h1>
+      <p class="hero__lead">
+        Emprego, formação, estágios, projetos e apoio social — tudo num só lugar, na tua região.
+      </p>
+
+      <form id="hero-search-form" class="hero-search" aria-label="Pesquisa principal">
+        <label class="hero-search__field hero-search__field--grow">
+          <span class="sr-only">Palavra-chave</span>
+          <span class="hero-search__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
+          </span>
+          <input id="hero-q" type="search" name="q" placeholder="Palavra-chave, entidade…" autocomplete="off">
+        </label>
+        <label class="hero-search__field">
+          <span class="sr-only">Localização</span>
+          <span class="hero-search__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/></svg>
+          </span>
+          <select id="hero-location" name="location">
+            <option value="">Toda a região</option>
+            <option value="Fundão" selected>Fundão</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn--primary btn--search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
+          Pesquisar
+        </button>
+      </form>
+
+      <div class="category-tiles" id="category-tiles"></div>
+      </div>
+    </div>
+
+  </section>
+
+  <main>
+    <section class="section section--white">
+      <div class="container">
+        <div class="section__head">
+          <h2>
+            <svg class="section__pin" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/></svg>
+            Oportunidades em destaque
+          </h2>
+          <a href="#" class="link-arrow" id="ver-todas-link">Ver todas →</a>
+        </div>
+        <div class="opp-grid" id="featured-list"></div>
+      </div>
+    </section>
+
+    <section class="section section--map-cta">
+      <div class="container map-cta">
+        <div class="map-cta__text">
+          <h2>Encontra oportunidades perto de ti</h2>
+          <p>Vê no mapa onde estão empregos, formações e serviços de apoio na tua zona.</p>
+          <a class="btn btn--navy" href="mapa.html">Ver mapa →</a>
+        </div>
+        <div class="map-cta__preview" aria-hidden="true">
+          <div class="map-preview">
+            <span class="map-pin map-pin--emprego"></span>
+            <span class="map-pin map-pin--estagio"></span>
+            <span class="map-pin map-pin--formacao"></span>
+            <span class="map-pin map-pin--projetos"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--cta">
+      <div class="container cta-box">
+        <div class="cta-box__icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+        </div>
+        <div>
+          <h2>Tens uma oportunidade?</h2>
+          <p>Partilha-a com a comunidade de forma rápida e simples.</p>
+        </div>
+        <a class="btn btn--primary btn--lg" href="publicar.html">Publicar oportunidade</a>
+      </div>
+    </section>
+
+    <section class="section section--white" id="explorar">
+      <div class="container">
+        <div class="section__head">
+          <h2>Explorar oportunidades</h2>
+        </div>
+        <div id="explore-status" class="status-msg" hidden></div>
+        <div class="opp-grid" id="explore-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="brand-lockup brand-lockup--footer" href="index.html">
+          <img class="brand-lockup__icon" src="assets/logo-icon.svg" width="40" height="46" alt="">
+          <span class="brand-lockup__text">
+            <span class="brand-lockup__title">Perto de <strong>Mim</strong></span>
+            <span class="brand-lockup__tagline">Oportunidades locais, mais perto de ti</span>
+          </span>
+        </a>
+      </div>
+      <nav class="site-footer__nav" aria-label="Institucional">
+        <a href="sobre.html">Sobre</a>
+        <a href="sobre.html#contactos">Contactos</a>
+        <a href="sobre.html#privacidade">Privacidade</a>
+        <a href="sobre.html#termos">Termos de uso</a>
+      </nav>
+      <div class="site-footer__social">
+        <p>Segue-nos</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="YouTube">YT</a>
+          <a href="#" aria-label="LinkedIn">IN</a>
+        </div>
+      </div>
+    </div>
+    <p class="site-footer__copy">© 2026 Perto de Mim · PAP — Plataforma de oportunidades locais</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/hero-ads.js"></script>
+</body>
+</html>

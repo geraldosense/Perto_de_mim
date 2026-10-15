@@ -1,0 +1,10 @@
+{
+  "name": "perto-de-mim",
+  "private": true,
+  "description": "Plataforma de oportunidades locais — PAP",
+  "scripts": {
+    "dev": "npm run dev --prefix backend",
+    "dev:api": "npm run dev --prefix backend",
+    "start": "npm run start --prefix backend"
+  }
+}

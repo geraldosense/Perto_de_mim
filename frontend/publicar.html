@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publicar oportunidade — Perto de Mim</title>
+  <meta name="api-base" content="http://127.0.0.1:3001">
+  <link rel="icon" href="assets/logo-icon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topnav">
+    <div class="container topnav__inner">
+      <a class="brand-lockup topnav__brand" href="index.html" aria-label="Perto de Mim — página inicial">
+        <img class="brand-lockup__icon" src="assets/logo-icon.svg" width="50" height="58" alt="">
+        <span class="brand-lockup__text">
+          <span class="brand-lockup__title">Perto de <strong>Mim</strong></span>
+          <span class="brand-lockup__tagline">Oportunidades locais, mais perto de ti</span>
+        </span>
+      </a>
+      <nav class="topnav__links" aria-label="Principal">
+        <a href="index.html">Início</a>
+        <a href="index.html#explorar">Explorar</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+      <div class="topnav__actions">
+        <a class="btn btn--ghost" href="entrar.html">Entrar</a>
+        <a class="btn btn--primary" href="registar.html">Registar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="page-card">
+      <h1>Publicar oportunidade</h1>
+      <p class="lead">Preenche os dados para partilhar com a comunidade. A publicação fica visível após validação (demo: imediata).</p>
+
+      <form id="publish-form" class="form-stack">
+        <label>Título
+          <input name="title" required maxlength="120">
+        </label>
+        <label>Tipo
+          <select name="type" required>
+            <option value="emprego">Emprego</option>
+            <option value="estagio">Estágio</option>
+            <option value="formacao">Formação</option>
+            <option value="projetos">Projeto</option>
+            <option value="apoio">Serviço de apoio</option>
+          </select>
+        </label>
+        <label>Descrição
+          <textarea name="description" required></textarea>
+        </label>
+        <label>Localização
+          <input name="location" required placeholder="Ex.: Fundão">
+        </label>
+        <label>Organização
+          <input name="organization" required>
+        </label>
+        <label>Contacto (email)
+          <input name="contact" type="email" required>
+        </label>
+        <label>URL da imagem (opcional)
+          <input name="imageUrl" type="url" placeholder="https://…">
+        </label>
+        <label>Validade (opcional)
+          <input name="expiresAt" type="date">
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary btn--lg">Publicar</button>
+        </div>
+        <div id="form-msg" class="form-msg" hidden></div>
+      </form>
+    </div>
+  </main>
+
+  <script type="module" src="js/publicar.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa — Perto de Mim</title>
+  <meta name="api-base" content="http://127.0.0.1:3001">
+  <link rel="icon" href="assets/logo-icon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topnav">
+    <div class="container topnav__inner">
+      <a class="brand-lockup topnav__brand" href="index.html" aria-label="Perto de Mim — página inicial">
+        <img class="brand-lockup__icon" src="assets/logo-icon.svg" width="50" height="58" alt="">
+        <span class="brand-lockup__text">
+          <span class="brand-lockup__title">Perto de <strong>Mim</strong></span>
+          <span class="brand-lockup__tagline">Oportunidades locais, mais perto de ti</span>
+        </span>
+      </a>
+      <nav class="topnav__links" aria-label="Principal">
+        <a href="index.html">Início</a>
+        <a href="index.html#explorar">Explorar</a>
+        <a class="is-active" href="mapa.html">Mapa</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+      <div class="topnav__actions">
+        <a class="btn btn--ghost" href="entrar.html">Entrar</a>
+        <a class="btn btn--primary" href="registar.html">Registar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-main map-page">
+    <div class="container">
+      <header class="map-page__head">
+        <h1>Mapa de oportunidades</h1>
+        <p>Pesquisa localidades e oportunidades — a lista e o mapa atualizam em conjunto.</p>
+      </header>
+
+      <div class="map-layout">
+        <aside class="map-panel" aria-label="Pesquisa no mapa">
+          <form id="map-search-form" class="map-search">
+            <label>
+              Local / concelho
+              <input
+                id="map-location"
+                type="text"
+                name="location"
+                placeholder="Ex.: Fundão, Castelo Novo…"
+                list="map-location-suggestions"
+                autocomplete="off"
+              >
+              <datalist id="map-location-suggestions"></datalist>
+            </label>
+            <label>
+              Palavra-chave
+              <input id="map-q" type="search" name="q" placeholder="Emprego, entidade…" autocomplete="off">
+            </label>
+            <label>
+              Tipo
+              <select id="map-type" name="type">
+                <option value="">Todos os tipos</option>
+              </select>
+            </label>
+            <button type="submit" class="btn btn--primary btn--block">Pesquisar no mapa</button>
+            <button type="button" class="btn btn--ghost-map" id="map-reset">Limpar filtros</button>
+          </form>
+
+          <div id="map-status" class="status-msg" hidden></div>
+
+          <div class="map-results-head">
+            <h2>Resultados</h2>
+            <span id="map-results-count" class="map-results-count">—</span>
+          </div>
+          <ul id="map-results" class="map-results" aria-live="polite"></ul>
+        </aside>
+
+        <div class="map-wrap">
+          <div id="map" aria-label="Mapa interativo"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script type="module" src="js/mapa.js"></script>
+</body>
+</html>

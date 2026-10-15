@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registar — Perto de Mim</title>
+  <link rel="icon" href="assets/logo-icon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topnav">
+    <div class="container topnav__inner">
+      <a class="brand-lockup topnav__brand" href="index.html" aria-label="Perto de Mim — página inicial">
+        <img class="brand-lockup__icon" src="assets/logo-icon.svg" width="50" height="58" alt="">
+        <span class="brand-lockup__text">
+          <span class="brand-lockup__title">Perto de <strong>Mim</strong></span>
+          <span class="brand-lockup__tagline">Oportunidades locais, mais perto de ti</span>
+        </span>
+      </a>
+      <nav class="topnav__links" aria-label="Principal">
+        <a href="index.html">Início</a>
+        <a href="index.html#explorar">Explorar</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+      <div class="topnav__actions">
+        <a class="btn btn--ghost" href="entrar.html">Entrar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="page-card">
+      <h1>Criar conta</h1>
+      <p class="lead">Registo de cidadão ou entidade para publicar e gerir oportunidades (demo local).</p>
+      <form id="register-form" class="form-stack">
+        <label>Nome / Entidade
+          <input name="name" required>
+        </label>
+        <label>Email
+          <input name="email" type="email" required autocomplete="username">
+        </label>
+        <label>Palavra-passe
+          <input name="password" type="password" required minlength="6" autocomplete="new-password">
+        </label>
+        <label>Tipo de conta
+          <select name="role">
+            <option value="cidadao">Cidadão</option>
+            <option value="entidade">Entidade / Organização</option>
+          </select>
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary btn--lg">Registar</button>
+        </div>
+        <div id="form-msg" class="form-msg" hidden></div>
+      </form>
+      <p class="auth-hint">Já tens conta? <a href="entrar.html">Entrar</a></p>
+    </div>
+  </main>
+
+  <script type="module">
+    import { initRegisterForm } from "./auth.js";
+    initRegisterForm();
+  </script>
+</body>
+</html>

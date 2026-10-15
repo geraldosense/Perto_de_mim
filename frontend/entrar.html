@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar — Perto de Mim</title>
+  <link rel="icon" href="assets/logo-icon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topnav">
+    <div class="container topnav__inner">
+      <a class="brand-lockup topnav__brand" href="index.html" aria-label="Perto de Mim — página inicial">
+        <img class="brand-lockup__icon" src="assets/logo-icon.svg" width="50" height="58" alt="">
+        <span class="brand-lockup__text">
+          <span class="brand-lockup__title">Perto de <strong>Mim</strong></span>
+          <span class="brand-lockup__tagline">Oportunidades locais, mais perto de ti</span>
+        </span>
+      </a>
+      <nav class="topnav__links" aria-label="Principal">
+        <a href="index.html">Início</a>
+        <a href="index.html#explorar">Explorar</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+      <div class="topnav__actions">
+        <a class="btn btn--primary" href="registar.html">Registar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="page-card">
+      <h1>Entrar</h1>
+      <p class="lead">Acesso para cidadãos e entidades (demonstração PAP — sem servidor de autenticação).</p>
+      <form id="login-form" class="form-stack">
+        <label>Email
+          <input name="email" type="email" required autocomplete="username">
+        </label>
+        <label>Palavra-passe
+          <input name="password" type="password" required autocomplete="current-password">
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary btn--lg">Entrar</button>
+        </div>
+        <div id="form-msg" class="form-msg" hidden></div>
+      </form>
+      <p class="auth-hint">Não tens conta? <a href="registar.html">Registar</a></p>
+    </div>
+  </main>
+
+  <script type="module">
+    import { initLoginForm } from "./auth.js";
+    initLoginForm();
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "liveServer.settings.root": "/frontend",
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.donotVerifyTags": true,
+  "liveServer.settings.proxy": {
+    "/api": "http://127.0.0.1:3001"
+  },
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.ignoreFiles": [
+    ".vscode/**",
+    "**/*.scss",
+    "**/*.sass",
+    "backend/**"
+  ]
+}
